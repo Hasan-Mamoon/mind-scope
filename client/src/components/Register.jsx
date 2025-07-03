@@ -72,7 +72,49 @@ const Register = () => {
 
   return (
     <div className="min-h-screen w-screen flex">
-      {/* Left Side - Registration Form */}
+      
+      {/* Left Side - Branding/Visual */}
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-700 items-center justify-center relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div className="absolute top-40 right-20 w-40 h-40 bg-white bg-opacity-10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-56 h-56 bg-white bg-opacity-5 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/3 right-1/3 w-32 h-32 bg-white bg-opacity-20 rounded-full blur-lg animate-bounce delay-500"></div>
+        
+        {/* Content */}
+        <div className="relative z-10 flex flex-col justify-center items-center text-white p-12 text-center">
+          <div className="mb-8">
+            <div className="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-6 mx-auto backdrop-blur-sm">
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
+                <User className="w-6 h-6 text-indigo-600" />
+              </div>
+            </div>
+            <h1 className="text-4xl font-bold mb-4">Join Our Community</h1>
+            <p className="text-xl text-purple-100 max-w-md">
+              Create your account and unlock access to powerful tools and features designed just for you.
+            </p>
+          </div>
+          
+          {/* Feature highlights */}
+          <div className="space-y-4 text-left">
+            <div className="flex items-center space-x-3">
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+              <span className="text-purple-100">Free to get started</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+              <span className="text-purple-100">Instant access</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+              <span className="text-purple-100">AI Generated Insights</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {/* Right Side - Registration Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-gray-50">
         <div className="w-full max-w-md space-y-8">
           {/* Mobile header */}
@@ -284,51 +326,12 @@ const Register = () => {
               <span
                 onClick={() => navigate("/login")}
                 className="cursor-pointer font-medium text-indigo-600 hover:text-indigo-500 transition-colors"
-              ></span>
+              >Login here</span>
             </p>
           </div>
         </div>
       </div>
 
-      {/* Right Side - Branding/Visual */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-700 items-center justify-center relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-        <div className="absolute top-40 right-20 w-40 h-40 bg-white bg-opacity-10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-56 h-56 bg-white bg-opacity-5 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/3 right-1/3 w-32 h-32 bg-white bg-opacity-20 rounded-full blur-lg animate-bounce delay-500"></div>
-        
-        {/* Content */}
-        <div className="relative z-10 flex flex-col justify-center items-center text-white p-12 text-center">
-          <div className="mb-8">
-            <div className="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-6 mx-auto backdrop-blur-sm">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
-                <User className="w-6 h-6 text-indigo-600" />
-              </div>
-            </div>
-            <h1 className="text-4xl font-bold mb-4">Join Our Community</h1>
-            <p className="text-xl text-purple-100 max-w-md">
-              Create your account and unlock access to powerful tools and features designed just for you.
-            </p>
-          </div>
-          
-          {/* Feature highlights */}
-          <div className="space-y-4 text-left">
-            <div className="flex items-center space-x-3">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-              <span className="text-purple-100">Free to get started</span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-              <span className="text-purple-100">Instant access</span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-              <span className="text-purple-100">AI Generated Insights</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
