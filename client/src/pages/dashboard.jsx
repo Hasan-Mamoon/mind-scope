@@ -18,7 +18,7 @@ import ReactWordCloud from "react-d3-cloud";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user,loading } = useAuth();
   const userId = user?._id;
   const [entries, setEntries] = useState([]);
   const [moodData, setMoodData] = useState([]);
@@ -69,10 +69,12 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    if (!userId) return;
+  if (!loading && userId) {
     fetchEntries();
     fetchWordCloud();
-  }, [userId]);
+  }
+}, [userId, loading]);
+
 
   const fetchEntries = async () => {
     const res = await fetch(`${apiUrl}/journal/user/${userId}`);

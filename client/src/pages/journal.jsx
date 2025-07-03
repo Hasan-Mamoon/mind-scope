@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -25,13 +24,12 @@ const getReflectionPrompt = (mood) => {
 
 const Journal = () => {
   const [entry, setEntry] = useState('');
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const userId = user?._id;
   const [date, setDate] = useState(() => new Date().toISOString().split('T')[0]);
   const [mood, setMood] = useState('default');
   const [entries, setEntries] = useState([]);
   const [analyzing, setAnalyzing] = useState(false);
-  const navigate = useNavigate();
 
   const analyzeSentiment = async (text) => {
     if (!text || text.length < 10) return;
@@ -95,10 +93,6 @@ const Journal = () => {
     }
   };
 
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
 
   useEffect(() => {
     if (userId) fetchEntries();
@@ -106,17 +100,7 @@ const Journal = () => {
 
   return (
     <div className="w-screen min-h-screen bg-gradient-to-br from-indigo-100 to-purple-100 p-6 flex flex-col items-center">
-      <div className="w-screen max-w-2xl flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold text-indigo-700">MindScope</h2>
-        {user && (
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg shadow"
-          >
-            Logout
-          </button>
-        )}
-      </div>
+ 
 
       {/* Journal Form */}
       <form
@@ -171,7 +155,7 @@ const Journal = () => {
 
         <button
           type="submit"
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-lg shadow"
+          className="custom-button bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-lg shadow"
         >
           Save Entry
         </button>

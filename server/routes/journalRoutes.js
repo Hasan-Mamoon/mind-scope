@@ -10,12 +10,10 @@ router.post("/create", async (req, res) => {
     const {entry, date, mood, userId } = req.body;
 
     console.log("Creating journal entry:", { entry, date, mood, userId });
-    // Validate required fields
     if (!entry || !date || !mood || !userId) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    // Create new journal entry
     const journalEntry = new journal({
       entry,
       date,
